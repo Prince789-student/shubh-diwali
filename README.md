@@ -3,6 +3,9 @@
 > **बिहार इंजीनियरिंग यूनिवर्सिटी (BEU) एवं समस्त कॉलेज विद्यार्थियों को प्रकाश पर्व दीपावली की हार्दिक शुभकामनाएं!**  
 > Developed for **अपना कॉलेज बिहार (Apna College Bihar)** Educational Community.
 
+🌐 **Live Website**: [https://prince789-student.github.io/shubh-diwali/](https://prince789-student.github.io/shubh-diwali/)  
+💬 **Official WhatsApp Channel**: [https://whatsapp.com/channel/0029VbC6FsH3wtb5UEDvrW0a](https://whatsapp.com/channel/0029VbC6FsH3wtb5UEDvrW0a)
+
 ---
 
 ## ✨ Features & Highlights
@@ -52,3 +55,4 @@
 ## 🎓 Dedicated to
 **अपना कॉलेज बिहार (Apna College Bihar)**  
 *बिहार इंजीनियरिंग यूनिवर्सिटी (BEU) एवं कॉलेज विद्यार्थियों का समर्पित एजुकेशनल प्लेटफॉर्म।*
+

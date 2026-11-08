@@ -37,30 +37,33 @@ class FireworksEngine {
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
-    // Click on canvas to launch
-    this.canvas.addEventListener('pointerdown', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    // Click anywhere on non-interactive areas to launch fireworks
+    window.addEventListener('pointerdown', (e) => {
+      // Do not intercept clicks on buttons, links, inputs, docks, or interactive tools
+      if (e.target && e.target.closest('button, a, input, textarea, select, .floating-cracker-dock, .aarti-player-card, #pujaCanvas, #rangoliCanvas, .quiz-option-btn, .modal-dialog, .diya-garden-card, .greeting-form, .copy-btn, .wa-btn, .interactive-tool-item, .aarti-stanza, .track-pill-btn, .btn-action')) {
+        return;
+      }
+      const x = e.clientX;
+      const y = e.clientY;
 
       if (this.sparklerActive) {
         this.sparklerPos = { x, y };
-        this.emitSparkler(x, y, 15);
+        this.emitSparkler(x, y, 16);
       } else {
         this.launchRocket(x, y);
       }
-    });
+    }, { passive: true });
 
-    this.canvas.addEventListener('pointermove', (e) => {
+    // Sparkler moving shower
+    window.addEventListener('pointermove', (e) => {
       if (this.sparklerActive) {
-        const rect = this.canvas.getBoundingClientRect();
         this.sparklerPos = {
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
+          x: e.clientX,
+          y: e.clientY
         };
         this.emitSparkler(this.sparklerPos.x, this.sparklerPos.y, 4);
       }
-    });
+    }, { passive: true });
 
     this.animate = this.animate.bind(this);
     requestAnimationFrame(this.animate);
@@ -192,8 +195,8 @@ class FireworksEngine {
 
   // 1. Sutli Bomb / Green Hydro Bomb (Blinding Flash + Heavy Screen Shake + Expanding Shockwave + Mushroom Smoke)
   igniteSutliBomb(groundX, groundY) {
-    const x = groundX || this.width * 0.5 + (Math.random() * 80 - 40);
-    const y = groundY || this.height - 110;
+    const x = groundX || (this.width * 0.5 + (Math.random() * 80 - 40));
+    const y = groundY || (this.height * 0.58);
 
     // Phase 1: Burning fuse sizzle
     if (window.diwaliAudio) {
@@ -267,8 +270,8 @@ class FireworksEngine {
 
   // 2. Murga Chhap Patakha (Iconic Red Firecrackers: 12 Rapid Snaps + Flying Red Paper Confetti + Smoke)
   igniteMurgaChhap(groundX, groundY) {
-    const startX = groundX || this.width * 0.5 + (Math.random() * 60 - 30);
-    const startY = groundY || this.height - 110;
+    const startX = groundX || (this.width * 0.5 + (Math.random() * 60 - 30));
+    const startY = groundY || (this.height * 0.60);
 
     if (window.diwaliAudio) {
       window.diwaliAudio.playMurgaChhap();
@@ -350,8 +353,8 @@ class FireworksEngine {
 
   // 3. Bullet Bomb / Mirchi Bomb (Piercing Twin Blast)
   igniteBulletBomb(groundX, groundY) {
-    const x = groundX || this.width * 0.5 + (Math.random() * 80 - 40);
-    const y = groundY || this.height - 110;
+    const x = groundX || (this.width * 0.5 + (Math.random() * 80 - 40));
+    const y = groundY || (this.height * 0.58);
 
     if (window.diwaliAudio) {
       window.diwaliAudio.playBulletBomb();
@@ -401,8 +404,8 @@ class FireworksEngine {
 
     const duration = 210; // ~3.5 sec
     this.activeFountains.push({
-      x: groundX || this.width * 0.5,
-      y: groundY || this.height - 70,
+      x: groundX || (this.width * 0.5),
+      y: groundY || (this.height * 0.72),
       framesLeft: duration,
       maxHeight: 340 + Math.random() * 140,
       color: '#FFD700'
@@ -416,8 +419,8 @@ class FireworksEngine {
     }
 
     this.activeChakris.push({
-      x: groundX || this.width * 0.5,
-      y: groundY || this.height - 80,
+      x: groundX || (this.width * 0.5),
+      y: groundY || (this.height * 0.65),
       angle: 0,
       speed: 0.45,
       framesLeft: 180,
@@ -458,8 +461,8 @@ class FireworksEngine {
     }
 
     const totalCrackers = 30;
-    const x = startX || this.width * 0.5;
-    const y = startY || this.height * 0.28;
+    const x = startX || (this.width * 0.5);
+    const y = startY || (this.height * 0.22);
 
     for (let i = 0; i < totalCrackers; i++) {
       setTimeout(() => {
@@ -490,6 +493,7 @@ class FireworksEngine {
   }
 
   animate() {
+    this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.ctx.save();
 

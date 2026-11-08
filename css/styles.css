@@ -71,21 +71,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Canvas Backgrounds */
+/* Canvas Backgrounds & Overlay Fireworks Layer */
 #fireworksCanvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: auto;
-  z-index: 1;
+  pointer-events: none;
+  z-index: 92;
 }
 
 .content-wrapper {
   position: relative;
   z-index: 2;
-  pointer-events: none; /* Let canvas receive clicks by default except on interactive items */
 }
 
 .interactive-zone,

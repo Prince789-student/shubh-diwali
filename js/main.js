@@ -13,14 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoOpenFestiveMusic();
 });
 
-// Auto-trigger festive ambient music on user's first gesture
+// Auto-trigger festive ambient music on user's first gesture (without clashing with Aarti)
 function initAutoOpenFestiveMusic() {
   let hasTriggered = false;
-  const startFestiveAmbient = () => {
+  const startFestiveAmbient = (e) => {
+    // If the click/touch is on the Aarti section, player or controls, do NOT start background music!
+    if (e && e.target && e.target.closest('#mainAartiPlayBtn, .btn-play-aarti, .track-pill-btn, #mandir, .aarti-stanza, .aarti-player-card')) {
+      return;
+    }
+    if (window.pujaMandir && window.pujaMandir.isPlayingMusic) {
+      return;
+    }
     if (hasTriggered) return;
     hasTriggered = true;
 
-    if (window.diwaliAudio) {
+    if (window.diwaliAudio && !window.diwaliAudio.userExplicitlyPausedBgm) {
       window.diwaliAudio.playFestiveBgm();
     }
 
@@ -28,13 +35,6 @@ function initAutoOpenFestiveMusic() {
       window.removeEventListener(ev, startFestiveAmbient);
     });
   };
-
-  // Attempt initial playback if permitted by browser
-  setTimeout(() => {
-    if (window.diwaliAudio && !window.diwaliAudio.ambientRunning) {
-      window.diwaliAudio.playFestiveBgm();
-    }
-  }, 400);
 
   ['pointerdown', 'keydown', 'scroll', 'touchstart', 'click'].forEach(ev => {
     window.addEventListener(ev, startFestiveAmbient, { passive: true });
@@ -103,7 +103,7 @@ function initCrackerDock() {
     sutliBtn.addEventListener('click', () => {
       if (window.fireworks) {
         window.fireworks.setSparklerMode(false);
-        window.fireworks.igniteSutliBomb(window.innerWidth * 0.5, window.innerHeight - 100);
+        window.fireworks.igniteSutliBomb(window.innerWidth * 0.5, window.innerHeight * 0.58);
       }
     });
   }
@@ -114,7 +114,7 @@ function initCrackerDock() {
     murgaBtn.addEventListener('click', () => {
       if (window.fireworks) {
         window.fireworks.setSparklerMode(false);
-        window.fireworks.igniteMurgaChhap(window.innerWidth * 0.5, window.innerHeight - 100);
+        window.fireworks.igniteMurgaChhap(window.innerWidth * 0.5, window.innerHeight * 0.60);
       }
     });
   }
@@ -125,7 +125,7 @@ function initCrackerDock() {
     bulletBtn.addEventListener('click', () => {
       if (window.fireworks) {
         window.fireworks.setSparklerMode(false);
-        window.fireworks.igniteBulletBomb(window.innerWidth * 0.5, window.innerHeight - 100);
+        window.fireworks.igniteBulletBomb(window.innerWidth * 0.5, window.innerHeight * 0.58);
       }
     });
   }
@@ -147,7 +147,7 @@ function initCrackerDock() {
     anaarBtn.addEventListener('click', () => {
       if (window.fireworks) {
         window.fireworks.setSparklerMode(false);
-        window.fireworks.igniteAnaar(window.innerWidth * 0.5, window.innerHeight - 80);
+        window.fireworks.igniteAnaar(window.innerWidth * 0.5, window.innerHeight * 0.72);
       }
     });
   }
@@ -158,7 +158,7 @@ function initCrackerDock() {
     chakriBtn.addEventListener('click', () => {
       if (window.fireworks) {
         window.fireworks.setSparklerMode(false);
-        window.fireworks.igniteChakri(window.innerWidth * 0.5, window.innerHeight - 90);
+        window.fireworks.igniteChakri(window.innerWidth * 0.5, window.innerHeight * 0.65);
       }
     });
   }
@@ -182,7 +182,7 @@ function initCrackerDock() {
   if (ladiBtn) {
     ladiBtn.addEventListener('click', () => {
       if (window.fireworks) {
-        window.fireworks.igniteLadi(window.innerWidth * 0.5, window.innerHeight * 0.25);
+        window.fireworks.igniteLadi(window.innerWidth * 0.5, window.innerHeight * 0.22);
       }
     });
   }

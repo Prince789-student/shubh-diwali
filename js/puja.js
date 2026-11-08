@@ -73,6 +73,27 @@ class DiwaliPujaMandir {
         this.syncVerseWithTime(this.currentTimeSec);
       });
 
+      audio.addEventListener('waiting', () => {
+        if (this.currentTrack !== trackKey) return;
+        const playBtnText = document.getElementById('aartiPlayBtnText');
+        if (playBtnText && this.isPlayingMusic) {
+          playBtnText.textContent = 'लोड हो रहा है...';
+        }
+      });
+
+      audio.addEventListener('playing', () => {
+        if (this.currentTrack !== trackKey) return;
+        const playBtnIcon = document.getElementById('aartiPlayBtnIcon');
+        const playBtnText = document.getElementById('aartiPlayBtnText');
+        const disc = document.getElementById('chakraDisc');
+        const eq = document.getElementById('playerEqualizer');
+        if (playBtnIcon) playBtnIcon.textContent = '⏸';
+        if (playBtnText) playBtnText.textContent = 'आरती रोकें';
+        if (disc) disc.classList.add('spinning');
+        if (eq) eq.classList.add('playing');
+        this.isPlayingMusic = true;
+      });
+
       audio.addEventListener('ended', () => {
         if (this.currentTrack !== trackKey) return;
         this.toggleMusicPlayback(false);
@@ -219,19 +240,32 @@ class DiwaliPujaMandir {
       if (disc) disc.classList.add('spinning');
       if (eq) eq.classList.add('playing');
 
+      // Pause the opposite track immediately
+      const otherAudio = (this.currentTrack === 'lakshmi') ? this.audioGanesh : this.audioLakshmi;
+      if (otherAudio) {
+        otherAudio.pause();
+      }
+
       if (window.diwaliAudio) {
         window.diwaliAudio.playTempleBell();
         // Pause background festive music so devotional Aarti is crystal clear
         if (typeof window.diwaliAudio.pauseFestiveBgm === 'function') {
-          window.diwaliAudio.pauseFestiveBgm();
+          window.diwaliAudio.pauseFestiveBgm(false);
         }
       }
 
       if (audio) {
+        audio.volume = 1.0;
+        audio.muted = false;
         const playPromise = audio.play();
         if (playPromise !== undefined) {
           playPromise.catch(err => {
             console.warn('Audio playback error:', err);
+            this.isPlayingMusic = false;
+            if (playBtnIcon) playBtnIcon.textContent = '▶';
+            if (playBtnText) playBtnText.textContent = 'आरती प्रारंभ करें';
+            if (disc) disc.classList.remove('spinning');
+            if (eq) eq.classList.remove('playing');
           });
         }
       }

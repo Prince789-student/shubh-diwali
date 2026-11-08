@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.2">
 </head>
 <body>
 
@@ -46,7 +46,7 @@
 
       <!-- Audio & Action Controls -->
       <div class="nav-actions">
-        <a href="#college-channel" class="whatsapp-nav-btn" title="अपना कॉलेज बिहार WhatsApp चैनल">
+        <a href="https://whatsapp.com/channel/0029VbC6FsH3wtb5UEDvrW0a" target="_blank" rel="noopener noreferrer" class="whatsapp-nav-btn" title="अपना कॉलेज बिहार WhatsApp चैनल">
           <span>💬</span> चैनल
         </a>
         <button id="toggleMusicBtn" class="audio-btn" aria-label="उत्सव संगीत चालू/बंद करें">
@@ -152,7 +152,7 @@
           <a href="#deepotsav-katha" class="btn-secondary">
             <span>🪔</span> 21 दीपोत्सव एवं शुभ मुहूर्त
           </a>
-          <a href="#college-channel" class="btn-whatsapp-pill">
+          <a href="https://whatsapp.com/channel/0029VbC6FsH3wtb5UEDvrW0a" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-pill">
             <span>💬</span> BEU WhatsApp चैनल
           </a>
         </div>
@@ -411,25 +411,25 @@
                 </div>
               </div>
 
-              <!-- Native Royal Devotional Audio Elements (No YouTube Lag/Borders) -->
-              <audio id="audioLakshmiAarti" preload="metadata" src="assets/audio/lakshmi_aarti.mp3"></audio>
-              <audio id="audioGaneshAarti" preload="metadata" src="assets/audio/ganesh_aarti.mp3"></audio>
+              <!-- Native Royal Devotional Audio Elements (Preloaded for Zero Delay) -->
+              <audio id="audioLakshmiAarti" preload="auto" src="assets/audio/lakshmi_aarti.mp3"></audio>
+              <audio id="audioGaneshAarti" preload="auto" src="assets/audio/ganesh_aarti.mp3"></audio>
               <audio id="audioFestiveBgm" preload="auto" loop src="assets/audio/festive_diwali_tune.mp3"></audio>
             </div>
 
-            <!-- Synchronized Verses Display (Clean - No instruction texts) -->
+            <!-- Synchronized Verses Display (Click any verse to instantly play from that line) -->
             <div class="lyrics-sync-wrapper">
               <div class="lyrics-sync-header">
                 <span class="sync-badge">📜 संपूर्ण आरती पाठ (Click to Seek)</span>
               </div>
 
-              <!-- Lakshmi Aarti Verses (Synchronized with Alka Yagnik Audio) -->
+              <!-- Lakshmi Aarti Verses (Exact Alka Yagnik Audio Synchronized) -->
               <div class="aarti-pane active" id="lakshmiAartiPane">
                 <div class="aarti-stanza active-verse" data-time="0">
                   <p class="aarti-line-main">ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।</p>
                   <p class="aarti-line-sub">तुमको निसदिन सेवत, हर विष्णु विधाता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="28">
+                <div class="aarti-stanza" data-time="32">
                   <p class="aarti-line-main">उमा, रमा, ब्रह्माणी, तुम ही जग-माता।</p>
                   <p class="aarti-line-sub">सूर्य-चन्द्रमा ध्यावत, नारद ऋषि गाता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
@@ -437,51 +437,55 @@
                   <p class="aarti-line-main">दुर्गा रूप निरंजनी, सुख सम्पति दाता।</p>
                   <p class="aarti-line-sub">जो कोई तुमको ध्यावत, ऋद्धि-सिद्धि धन पाता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="98">
+                <div class="aarti-stanza" data-time="133">
                   <p class="aarti-line-main">तुम पाताल-निवासिनि, तुम ही शुभदाता।</p>
                   <p class="aarti-line-sub">कर्म-प्रभाव-प्रकाशिनी, भवनिधि की त्राता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="133">
+                <div class="aarti-stanza" data-time="146">
                   <p class="aarti-line-main">जिस घर में तुम रहतीं, सब सद्गुण आता।</p>
                   <p class="aarti-line-sub">सब संभव हो जाता, मन नहीं घबराता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="168">
+                <div class="aarti-stanza" data-time="175">
                   <p class="aarti-line-main">तुम बिन यज्ञ न होते, वस्त्र न कोई पाता।</p>
                   <p class="aarti-line-sub">खान-पान का वैभव, सब तुमसे आता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="203">
+                <div class="aarti-stanza" data-time="205">
                   <p class="aarti-line-main">शुभ-गुण मंदिर सुंदर, क्षीरोदधि जाता।</p>
                   <p class="aarti-line-sub">रत्न चतुर्दश तुम बिन, कोई नहीं पाता॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="240">
+                <div class="aarti-stanza" data-time="259">
                   <p class="aarti-line-main">महालक्ष्मीजी की आरती, जो कोई नर गावे।</p>
                   <p class="aarti-line-sub">उर आनंद समावे, अति धन संपत्ति पावे॥ ॐ जय लक्ष्मी माता...</p>
                 </div>
-                <div class="aarti-stanza" data-time="275">
+                <div class="aarti-stanza" data-time="288">
                   <p class="aarti-line-main">ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।</p>
-                  <p class="aarti-line-sub">सब संकट हरणी, सुख-संपत्ति करणी, मंगल मूरति माता॥</p>
+                  <p class="aarti-line-sub">सब संकट हरणी, सुख-संपत्ति करणी, मंगल मूरति माता॥ ॐ जय लक्ष्मी माता!</p>
                 </div>
               </div>
 
-              <!-- Ganesh Aarti Verses (Synchronized with Anuradha Paudwal Audio) -->
+              <!-- Ganesh Aarti Verses (Exact Anuradha Paudwal Audio Synchronized) -->
               <div class="aarti-pane" id="ganeshAartiPane">
                 <div class="aarti-stanza active-verse" data-time="0">
                   <p class="aarti-line-main">जय गणेश जय गणेश, जय गणेश देवा।</p>
+                  <p class="aarti-line-sub">माता जाकी पार्वती, पिता महादेवा॥ (मंगलाचरण व वाद्य धुन)</p>
+                </div>
+                <div class="aarti-stanza" data-time="18">
+                  <p class="aarti-line-main">जय गणेश जय गणेश, जय गणेश देवा।</p>
                   <p class="aarti-line-sub">माता जाकी पार्वती, पिता महादेवा॥</p>
                 </div>
-                <div class="aarti-stanza" data-time="26">
+                <div class="aarti-stanza" data-time="55">
                   <p class="aarti-line-main">एक दंत दयावंत, चार भुजा धारी।</p>
                   <p class="aarti-line-sub">माथे सिंदूर सोहे, मूसे की सवारी॥ जय गणेश देवा...</p>
                 </div>
-                <div class="aarti-stanza" data-time="57">
+                <div class="aarti-stanza" data-time="74">
                   <p class="aarti-line-main">पान चढ़े फूल चढ़े, और चढ़े मेवा।</p>
                   <p class="aarti-line-sub">लड्डुअन का भोग लगे, संत करें सेवा॥ जय गणेश देवा...</p>
                 </div>
-                <div class="aarti-stanza" data-time="86">
+                <div class="aarti-stanza" data-time="109">
                   <p class="aarti-line-main">अंधन को आंख देत, कोढ़िन को काया।</p>
                   <p class="aarti-line-sub">बांझन को पुत्र देत, निर्धन को माया॥ जय गणेश देवा...</p>
                 </div>
-                <div class="aarti-stanza" data-time="117">
+                <div class="aarti-stanza" data-time="131">
                   <p class="aarti-line-main">'सूर' श्याम शरण आए, सफल कीजे सेवा।</p>
                   <p class="aarti-line-sub">माता जाकी पार्वती, पिता महादेवा॥ जय गणेश देवा...</p>
                 </div>
@@ -753,7 +757,7 @@
           </div>
 
           <div class="whatsapp-action-box">
-            <a href="https://whatsapp.com/channel/0029Va4w" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-join" id="whatsappChannelMainBtn">
+            <a href="https://whatsapp.com/channel/0029VbC6FsH3wtb5UEDvrW0a" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-join" id="whatsappChannelMainBtn">
               <span class="wa-icon">💬</span>
               <span class="wa-text-wrap">
                 <span class="wa-btn-title">व्हाट्सएप चैनल से जुड़ें (Join WhatsApp Channel)</span>
@@ -814,7 +818,7 @@
         <li><a href="#deepotsav-katha">दीपोत्सव व कथा</a></li>
         <li><a href="#mandir">आरती दर्शन</a></li>
         <li><a href="#festive-studio">उत्सव स्टूडियो</a></li>
-        <li><a href="#college-channel">WhatsApp चैनल</a></li>
+        <li><a href="https://whatsapp.com/channel/0029VbC6FsH3wtb5UEDvrW0a" target="_blank" rel="noopener noreferrer">WhatsApp चैनल</a></li>
       </ul>
       <p class="footer-copy">
         समर्पित: <strong>अपना कॉलेज बिहार (Apna College Bihar)</strong> • BEU Educational Platform. 🪔
@@ -822,17 +826,17 @@
     </div>
   </footer>
 
-  <!-- Scripts (Cache Busted v3.0) -->
-  <script src="js/audio.js?v=3.0"></script>
-  <script src="js/fireworks.js?v=3.0"></script>
-  <script src="js/diya.js?v=3.0"></script>
-  <script src="js/puja.js?v=3.0"></script>
-  <script src="js/lanterns.js?v=3.0"></script>
-  <script src="js/rangoli.js?v=3.0"></script>
-  <script src="js/mithai.js?v=3.0"></script>
-  <script src="js/greetings.js?v=3.0"></script>
-  <script src="js/photobooth.js?v=3.0"></script>
-  <script src="js/trivia.js?v=3.0"></script>
-  <script src="js/main.js?v=3.0"></script>
+  <!-- Scripts (Cache Busted v3.2) -->
+  <script src="js/audio.js?v=3.2"></script>
+  <script src="js/fireworks.js?v=3.2"></script>
+  <script src="js/diya.js?v=3.2"></script>
+  <script src="js/puja.js?v=3.2"></script>
+  <script src="js/lanterns.js?v=3.2"></script>
+  <script src="js/rangoli.js?v=3.2"></script>
+  <script src="js/mithai.js?v=3.2"></script>
+  <script src="js/greetings.js?v=3.2"></script>
+  <script src="js/photobooth.js?v=3.2"></script>
+  <script src="js/trivia.js?v=3.2"></script>
+  <script src="js/main.js?v=3.2"></script>
 </body>
 </html>
