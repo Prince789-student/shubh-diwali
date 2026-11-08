@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>शुभ दीपावली 2026 | अपना कॉलेज बिहार (BEU Educational Platform)</title>
+  <meta name="description" content="अपना कॉलेज बिहार की ओर से दीपावली महापर्व: अखंड दीप प्रज्वलन, लक्ष्मी-गणेश आरती दर्शन, 21 दीपोत्सव, रंगोली, फोटो फ्रेम व व्हाट्सएप चैनल।">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=3.0">
+</head>
+<body>
+
+  <!-- Fullscreen Interactive Fireworks Canvas -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- Clean Top Festoon Border (Non-overlapping lights) -->
+  <div class="top-festoon-bar" id="fairyLightsString"></div>
+
+  <!-- Master Navigation Header -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-logo" aria-label="शुभ दीपावली होम">
+        <span class="brand-diya-icon">🪔</span>
+        <div class="brand-text-wrap">
+          <span class="brand-title">शुभ दीपावली</span>
+          <span class="brand-college-tag">अपना कॉलेज बिहार • BEU</span>
+        </div>
+      </a>
+
+      <!-- Streamlined Desktop Navigation (Clean & uncluttered) -->
+      <nav>
+        <ul class="nav-links" id="mainNavLinks">
+          <li><a href="#hero" class="nav-link active">होम</a></li>
+          <li><a href="#deepotsav-katha" class="nav-link">दीपोत्सव व कथा</a></li>
+          <li><a href="#mandir" class="nav-link">आरती व भजन</a></li>
+          <li><a href="#festive-studio" class="nav-link">उत्सव स्टूडियो</a></li>
+          <li><a href="#college-channel" class="nav-link highlight-wa"><span>💬</span> WhatsApp चैनल</a></li>
+        </ul>
+      </nav>
+
+      <!-- Audio & Action Controls -->
+      <div class="nav-actions">
+        <a href="#college-channel" class="whatsapp-nav-btn" title="अपना कॉलेज बिहार WhatsApp चैनल">
+          <span>💬</span> चैनल
+        </a>
+        <button id="toggleMusicBtn" class="audio-btn" aria-label="उत्सव संगीत चालू/बंद करें">
+          <span>🎵</span> संगीत
+        </button>
+        <button id="toggleSfxBtn" class="audio-btn" aria-label="ध्वनि प्रभाव म्यूट करें">
+          <span>🔊</span> ध्वनि
+        </button>
+        <button id="mobileNavToggle" class="mobile-menu-btn" aria-label="मेन्यू खोलें">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Blinding Golden Flash Overlay for Bombs -->
+  <div id="bombFlashOverlay" class="bomb-flash" aria-hidden="true"></div>
+
+  <!-- Floating Bottom Cracker Dock (iOS/macOS style - No top clutter!) -->
+  <div class="floating-cracker-dock" id="crackerDock" role="toolbar" aria-label="पटाखे व आतिशबाजी डॉक">
+    <div class="dock-title-pill">✨ Crackers Dock</div>
+    <div class="dock-buttons-row">
+      <button class="dock-btn" id="launchRocketBtn" title="Rocket: आकाश में रॉकेट छोड़ें"><span>🚀</span> रॉकेट</button>
+      <button class="dock-btn bomb-highlight" id="igniteSutliBombBtn" title="Sutli Bomb: धमाका व स्क्रीन शेक"><span>💣</span> सुतली बम</button>
+      <button class="dock-btn murga-highlight" id="igniteMurgaChhapBtn" title="Murga Chhap: 12 लाल पटाखों का रैपिड ब्लास्ट"><span>🐓</span> मुर्गा छाप</button>
+      <button class="dock-btn" id="igniteBulletBombBtn" title="Bullet Bomb: डबल धमाका"><span>🌶️</span> बुलेट बम</button>
+      <button class="dock-btn" id="launchSkyShotBtn" title="12 Sky Shot: मल्टी-कलर आकाशीय शो"><span>🌌</span> स्काई शॉट</button>
+      <button class="dock-btn" id="igniteAnaarBtn" title="Anaar: सुनहरा फव्वारा"><span>🏺</span> अनार</button>
+      <button class="dock-btn" id="igniteChakriBtn" title="Chakri: ज़मीनी चकरी"><span>🌀</span> चकरी</button>
+      <button class="dock-btn" id="toggleSparklerBtn" title="Phuljhadi: फुलझड़ी कर्सर मोड"><span>✨</span> फुलझड़ी</button>
+      <button class="dock-btn" id="igniteLadiBtn" title="Ladi: 1000 वाली लड़ी"><span>🧨</span> लड़ी</button>
+      <button class="dock-btn btn-auto-show" id="toggleAutoShowBtn" title="Grand Auto Show: भव्य ऑटो शो"><span>🎆</span> ऑटो शो</button>
+    </div>
+  </div>
+
+  <main class="content-wrapper">
+
+    <!-- ==========================================================================
+         1. HERO SECTION: CLEAN, REGAL & BEU PLATFORM WELCOME
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-content interactive-zone">
+        
+        <!-- Apna College Bihar Authentic Banner -->
+        <div class="college-hero-badge">
+          <span class="college-badge-icon">🎓</span>
+          <div class="college-badge-text">
+            <strong>अपना कॉलेज बिहार (Apna College Bihar)</strong>
+            <span>बिहार इंजीनियरिंग यूनिवर्सिटी (BEU) एवं कॉलेज विद्यार्थियों का एजुकेशनल प्लेटफॉर्म</span>
+          </div>
+        </div>
+
+        <div class="hero-shloka-badge">
+          <span>✨</span> असतो मा सद्गमय • तमसो मा ज्योतिर्गमय • मृत्योर्माऽमृतं गमय <span>✨</span>
+        </div>
+
+        <h1 class="hero-title-main">
+          दीपावली महापर्व<br>
+          <span class="text-gold-gradient">शुभम करोति कल्याणम</span>
+        </h1>
+
+        <p class="hero-subtitle">BEU एवं समस्त कॉलेज विद्यार्थियों को प्रकाश पर्व की मंगलकामनाएं</p>
+
+        <p class="hero-description">
+          अंधकार पर प्रकाश और असत्य पर सत्य की अमर विजय का पावन उत्सव!
+          माता महालक्ष्मी और भगवान श्री गणेश आपके जीवन को ज्ञान, उत्तम स्वास्थ्य, करियर में सफलता और खुशियों से आलोकित करें।
+        </p>
+
+        <!-- Akhand Diya Centerpiece -->
+        <div class="akhand-diya-container">
+          <div class="akhand-diya lit" id="akhandDiya" title="अखंड ज्योति पर क्लिक करें">
+            <div class="akhand-flame-wrapper">
+              <div class="akhand-aura"></div>
+              <div class="akhand-flame">
+                <div class="akhand-flame-inner"></div>
+              </div>
+            </div>
+            <div class="akhand-diya-base">
+              <svg viewBox="0 0 140 70" class="clay-svg">
+                <defs>
+                  <linearGradient id="akhandClay" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F59E0B" />
+                    <stop offset="50%" stop-color="#B45309" />
+                    <stop offset="100%" stop-color="#78350F" />
+                  </linearGradient>
+                </defs>
+                <path d="M 15,30 Q 70,80 125,30 Q 70,45 15,30 Z" fill="url(#akhandClay)" />
+                <ellipse cx="70" cy="30" rx="55" ry="12" fill="#D97706" stroke="#FEF3C7" stroke-width="2" />
+                <ellipse cx="70" cy="32" rx="42" ry="7" fill="#451A03" opacity="0.9" />
+                <path d="M 70,33 Q 74,20 70,16" stroke="#FEF3C7" stroke-width="3" stroke-linecap="round" fill="none" />
+              </svg>
+            </div>
+          </div>
+          <button class="btn-secondary" id="akhandDiyaTrigger">
+            <span>🪔</span> अखंड ज्योति प्रज्वलित है
+          </button>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#mandir" class="btn-primary">
+            <span>🌸</span> श्री लक्ष्मी-गणेश आरती दर्शन
+          </a>
+          <a href="#deepotsav-katha" class="btn-secondary">
+            <span>🪔</span> 21 दीपोत्सव एवं शुभ मुहूर्त
+          </a>
+          <a href="#college-channel" class="btn-whatsapp-pill">
+            <span>💬</span> BEU WhatsApp चैनल
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. DEEPOTSAV & KATHA HUB: 3 TABS (DIYA GARDEN, KATHA, SHUBH MUHURAT)
+         ========================================================================== -->
+    <section class="festive-section" id="deepotsav-katha">
+      <div class="container interactive-zone">
+        <div class="section-header">
+          <span class="section-tag">TRADITIONS &amp; CELEBRATIONS</span>
+          <h2 class="section-title">दीपोत्सव, पावन कथा एवं शुभ मुहूर्त</h2>
+          <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-icon">🪔</span>
+            <span class="divider-line"></span>
+          </div>
+          <p class="section-subtitle">
+            नीचे दिए गए टैब से 21 मंगल दीप जलाएं, रामायण व समुद्र मंथन की अमर गाथा जानें, या स्थिर लग्न पूजा मुहूर्त देखें।
+          </p>
+        </div>
+
+        <!-- Master Tabs for Section 2 -->
+        <div class="hub-tabs-container">
+          <button class="hub-tab-btn active" data-target="tabDiyaGarden">
+            <span>🪔</span> 21 दीपक प्रज्वलन
+          </button>
+          <button class="hub-tab-btn" data-target="tabDiwaliKatha">
+            <span>📜</span> दीपावली कथा व ५ पर्व
+          </button>
+          <button class="hub-tab-btn" data-target="tabShubhMuhurat">
+            <span>⏱️</span> शुभ मुहूर्त व पूजन विधि
+          </button>
+        </div>
+
+        <!-- Tab 1: 21-Diya Deepotsav Garden -->
+        <div class="hub-tab-pane active" id="tabDiyaGarden">
+          <div class="diya-garden-panel">
+            <div class="diya-garden-status-wrap">
+              <div class="diya-counter-badge" id="diyaCounter">0 / 21</div>
+              <div class="diya-progress-track">
+                <div class="diya-progress-bar" id="diyaProgressBar"></div>
+              </div>
+              <p class="diya-status-msg" id="diyaStatusMsg">दीपक पर क्लिक करके उसे प्रज्वलित करें</p>
+            </div>
+
+            <!-- 21 Diyas Container (Rendered by diya.js) -->
+            <div class="diya-grid-container" id="diyaGrid"></div>
+
+            <div class="diya-garden-actions">
+              <button class="btn-primary" id="lightAllDiyasBtn">
+                <span>✨</span> सभी 21 दीपक एक साथ जलाएं
+              </button>
+              <button class="btn-secondary" id="resetDiyasBtn">
+                <span>🔄</span> पुनः प्रारंभ करें
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Diwali Katha & 5 Days -->
+        <div class="hub-tab-pane" id="tabDiwaliKatha">
+          <div class="history-banner">
+            <div class="history-text">
+              <h3>अयोध्या में मर्यादा पुरुषोत्तम श्री राम का आगमन</h3>
+              <p>
+                १४ वर्ष के वनवास और लंका विजय के बाद कार्तिक अमावस्या की गहन अंधियारी रात को प्रभु श्री राम, माता सीता और लक्ष्मण जी के अयोध्या आगमन पर अयोध्यावासियों ने घी के अनगिनत दीप प्रज्वलित कर अमावस्या को पूर्णिमा से भी अधिक प्रकाशमान कर दिया था।
+              </p>
+              <p>
+                उसी पावन रात्रि को क्षीरसागर के समुद्र मंथन से धन, ऐश्वर्य और शांति की अधिष्ठात्री माता महालक्ष्मी का प्राकट्य हुआ था। इसीलिए हर वर्ष यह महापर्व अंधकार पर प्रकाश और असत्य पर सत्य की विजय के रूप में मनाया जाता है।
+              </p>
+            </div>
+            <div class="history-visual">
+              <div class="history-visual-badge">
+                <span class="big-diya-art">🪔</span>
+                <h4>अधर्म पर धर्म की विजय</h4>
+                <p>अयोध्या दीपोत्सव एवं महालक्ष्मी प्राकट्य</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panch-parva-grid">
+            <div class="festive-card">
+              <span class="parva-day-badge">दिवस १ • त्रयोदशी</span>
+              <h3 class="parva-title">धनतेरस</h3>
+              <p class="parva-desc">आरोग्य के देवता भगवान धनवंतरि प्राकट्योत्सव एवं कुबेर पूजन। बर्तनों व स्वर्ण-रजत की खरीद।</p>
+            </div>
+            <div class="festive-card">
+              <span class="parva-day-badge">दिवस २ • चतुर्दशी</span>
+              <h3 class="parva-title">छोटी दीवाली</h3>
+              <p class="parva-desc">श्री कृष्ण द्वारा नरकासुर वध, रूप चौदस उबटन स्नान एवं अकाल मृत्यु निवारण यम दीपदान।</p>
+            </div>
+            <div class="festive-card highlight-card">
+              <span class="parva-day-badge" style="background:var(--gold-primary); color:#000;">दिवस ३ • अमावस्या</span>
+              <h3 class="parva-title">बड़ी दीपावली</h3>
+              <p class="parva-desc">माता महालक्ष्मी, श्री गणेश जी का षोडशोपचार पूजन, घर-घर में दीपोत्सव एवं आतिशबाजी।</p>
+            </div>
+            <div class="festive-card">
+              <span class="parva-day-badge">दिवस ४ • प्रतिपदा</span>
+              <h3 class="parva-title">गोवर्धन पूजा</h3>
+              <p class="parva-desc">श्री कृष्ण द्वारा गोवर्धन पर्वत धारण व ५६ भोग (अन्नकूट)। प्रकृति व गोमाता की आराधना।</p>
+            </div>
+            <div class="festive-card">
+              <span class="parva-day-badge">दिवस ५ • द्वितीया</span>
+              <h3 class="parva-title">भाई दूज</h3>
+              <p class="parva-desc">यमराज और यमुना का पावन स्नेह। बहनें भाइयों को मंगल तिलक लगाकर दीर्घायु की कामना करती हैं।</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Shubh Muhurat & Pujan Vidhi -->
+        <div class="hub-tab-pane" id="tabShubhMuhurat">
+          <div class="muhurat-grid">
+            <div class="festive-card muhurat-card">
+              <div class="muhurat-icon">🌅</div>
+              <span class="parva-day-badge">गृहस्थ पूजन</span>
+              <h3 class="parva-title">प्रदोष काल मुहूर्त</h3>
+              <div class="muhurat-time">सायं 05:40 से 08:14 तक</div>
+              <p class="parva-desc">कार्तिक अमावस्या के सूर्यास्त के बाद माता लक्ष्मी के आगमन का श्रेष्ठ समय।</p>
+            </div>
+            <div class="festive-card muhurat-card highlight-card">
+              <div class="muhurat-icon">👑</div>
+              <span class="parva-day-badge" style="background:var(--gold-primary); color:#000;">स्थिर लग्न (सर्वश्रेष्ठ)</span>
+              <h3 class="parva-title">वृषभ लग्न मुहूर्त</h3>
+              <div class="muhurat-time">सायं 06:18 से 08:15 तक</div>
+              <p class="parva-desc">स्थिर लग्न में लक्ष्मी-गणेश पूजन करने से घर और विद्या-करियर में स्थायी बरकत बनी रहती है।</p>
+            </div>
+            <div class="festive-card muhurat-card">
+              <div class="muhurat-icon">🌌</div>
+              <span class="parva-day-badge">महानिशीथ काल</span>
+              <h3 class="parva-title">श्री सूक्त साधना काल</h3>
+              <div class="muhurat-time">रात्रि 11:39 से 12:31 तक</div>
+              <p class="parva-desc">कनकधारा स्तोत्र, श्रीयंत्र एवं कुबेर मंत्र सिद्धि का उत्तम समय।</p>
+            </div>
+          </div>
+
+          <div class="pujan-vidhi-container">
+            <h3 class="vidhi-heading">🪔 संक्षिप्त व संपूर्ण दीपावली पूजन विधि (८ चरण)</h3>
+            <div class="vidhi-steps-grid">
+              <div class="vidhi-step-card"><span class="step-num">१</span><h4>पवित्रीकरण</h4><p>गंगाजल छिड़ककर आचमन करें और पवित्रता का भाव लाएं।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">२</span><h4>संकल्प</h4><p>हाथ में जल, अक्षत लेकर परिवार व विद्या-सफलता का संकल्प लें।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">३</span><h4>श्री गणेश पूजन</h4><p>विघ्नहर्ता गणेश जी को मोदक, दूर्वा, रोली व जनेऊ अर्पित करें।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">४</span><h4>कलश स्थापना</h4><p>नारियल व आम्रपत्र के साथ वरुण देव की स्थापना करें।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">५</span><h4>महालक्ष्मी ध्यान</h4><p>कमल दल पर विराजी मां लक्ष्मी को कमल पुष्प व इत्र चढ़ाएं।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">६</span><h4>पुस्तक व लेखनी</h4><p>विद्यार्थी अपनी पुस्तकें, पेन व बही-खाते का पूजन करें।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">७</span><h4>दीप मालिका</h4><p>चौमुखा दीपक और आंगन में 21 मिट्टी के दीये सजाएं।</p></div>
+              <div class="vidhi-step-card"><span class="step-num">८</span><h4>आरती व पुष्पांजलि</h4><p>सपरिवार आरती गाएं और खील-बताशे व मिष्ठान्न का प्रसाद लें।</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. VIRTUAL MANDIR & SYNCHRONIZED AARTI PLAYER
+         ========================================================================== -->
+    <section class="festive-section" id="mandir">
+      <div class="container interactive-zone">
+        <div class="section-header">
+          <span class="section-tag">DIVINE SANCTUM</span>
+          <h2 class="section-title">श्री लक्ष्मी-गणेश आरती एवं दर्शन</h2>
+          <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-icon">🌸</span>
+            <span class="divider-line"></span>
+          </div>
+          <p class="section-subtitle">
+            माता महालक्ष्मी और भगवान श्री गणेश की पावन आरती का श्रवण करें एवं भक्तिभाव से स्मरण करें।
+          </p>
+        </div>
+
+        <div class="mandir-sanctum">
+          <!-- Flower Petal Canvas -->
+          <canvas id="pujaCanvas"></canvas>
+
+          <div class="mandap-arch">
+            <h3 class="mandap-title">॥ ॐ श्री गणेशाय नमः ॥ ॐ महालक्ष्म्यै नमः ॥</h3>
+          </div>
+
+          <!-- Deities Altar -->
+          <div class="deities-altar">
+            <div class="deity-frame">
+              <div class="deity-halo"><span class="deity-icon">🐘</span></div>
+              <h4 class="deity-name">भगवान श्री गणेश</h4>
+              <p class="deity-shloka">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+            </div>
+            <div class="deity-frame">
+              <div class="deity-halo"><span class="deity-icon">🪷</span></div>
+              <h4 class="deity-name">माता महालक्ष्मी</h4>
+              <p class="deity-shloka">नमस्तेऽस्तु महामाये श्रीपीठे सुरपूजिते। शङ्खचक्रगदाहस्ते महालक्ष्मि नमोऽस्तु ते॥</p>
+            </div>
+          </div>
+
+          <!-- Sacred Aarti Thali -->
+          <div class="aarti-thali-stage">
+            <div class="aarti-thali" id="aartiThali" title="आरती थाली">
+              <span class="thali-flame">🪔</span>
+            </div>
+          </div>
+
+          <!-- Puja Offerings Action Bar -->
+          <div class="puja-action-row">
+            <button class="puja-action-btn" id="offerFlowersBtn"><span>🌸</span> पुष्पार्पण करें</button>
+            <button class="puja-action-btn" id="ringBellBtn"><span id="mandirBell">🔔</span> घंटी बजाएं</button>
+            <button class="puja-action-btn" id="blowShankhBtn"><span id="mandirShankh">🐚</span> शंख नाद</button>
+            <button class="puja-action-btn" id="performAartiBtn"><span>🪔</span> थाली घुमाएं</button>
+          </div>
+
+          <!-- Royal Devotional Aarti Music Player (Clean, Integrated & Aesthetic) -->
+          <div class="aarti-unified-box">
+            
+            <div class="aarti-player-card">
+              <div class="player-top-row">
+                <div class="player-album-art">
+                  <div class="spinning-chakra" id="chakraDisc">🪷</div>
+                </div>
+                <div class="player-info-meta">
+                  <span class="player-katha-tag">पावन आरती दर्शन</span>
+                  <h3 class="player-track-title" id="playerTrackTitle">श्री महालक्ष्मी जी की आरती (ॐ जय लक्ष्मी माता)</h3>
+                  <div class="player-singers-name" id="playerTrackSinger">भक्तिमय स्वर • पारंपरिक मधुर धुन</div>
+                </div>
+                <div class="player-equalizer" id="playerEqualizer">
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                </div>
+              </div>
+
+              <!-- Track Switcher Pills -->
+              <div class="aarti-track-pills">
+                <button class="track-pill-btn active" data-track="lakshmi" data-target="lakshmiAartiPane">
+                  <span>🪷</span> माता लक्ष्मी आरती
+                </button>
+                <button class="track-pill-btn" data-track="ganesh" data-target="ganeshAartiPane">
+                  <span>🐘</span> श्री गणेश आरती
+                </button>
+              </div>
+
+              <!-- Controls & Seekbar -->
+              <div class="player-controls-wrap">
+                <button class="btn-play-aarti" id="mainAartiPlayBtn" aria-label="आरती चलाएं या रोकें">
+                  <span class="play-icon" id="aartiPlayBtnIcon">▶</span>
+                  <span class="play-text" id="aartiPlayBtnText">आरती प्रारंभ करें</span>
+                </button>
+
+                <div class="progress-bar-container">
+                  <span class="time-label" id="aartiCurrentTime">00:00</span>
+                  <div class="progress-track" id="aartiProgressTrack">
+                    <div class="progress-fill" id="aartiProgressFill"></div>
+                  </div>
+                  <span class="time-label" id="aartiTotalTime">05:32</span>
+                </div>
+              </div>
+
+              <!-- Native Royal Devotional Audio Elements (No YouTube Lag/Borders) -->
+              <audio id="audioLakshmiAarti" preload="metadata" src="assets/audio/lakshmi_aarti.mp3"></audio>
+              <audio id="audioGaneshAarti" preload="metadata" src="assets/audio/ganesh_aarti.mp3"></audio>
+              <audio id="audioFestiveBgm" preload="auto" loop src="assets/audio/festive_diwali_tune.mp3"></audio>
+            </div>
+
+            <!-- Synchronized Verses Display (Clean - No instruction texts) -->
+            <div class="lyrics-sync-wrapper">
+              <div class="lyrics-sync-header">
+                <span class="sync-badge">📜 संपूर्ण आरती पाठ (Click to Seek)</span>
+              </div>
+
+              <!-- Lakshmi Aarti Verses (Synchronized with Alka Yagnik Audio) -->
+              <div class="aarti-pane active" id="lakshmiAartiPane">
+                <div class="aarti-stanza active-verse" data-time="0">
+                  <p class="aarti-line-main">ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।</p>
+                  <p class="aarti-line-sub">तुमको निसदिन सेवत, हर विष्णु विधाता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="28">
+                  <p class="aarti-line-main">उमा, रमा, ब्रह्माणी, तुम ही जग-माता।</p>
+                  <p class="aarti-line-sub">सूर्य-चन्द्रमा ध्यावत, नारद ऋषि गाता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="63">
+                  <p class="aarti-line-main">दुर्गा रूप निरंजनी, सुख सम्पति दाता।</p>
+                  <p class="aarti-line-sub">जो कोई तुमको ध्यावत, ऋद्धि-सिद्धि धन पाता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="98">
+                  <p class="aarti-line-main">तुम पाताल-निवासिनि, तुम ही शुभदाता।</p>
+                  <p class="aarti-line-sub">कर्म-प्रभाव-प्रकाशिनी, भवनिधि की त्राता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="133">
+                  <p class="aarti-line-main">जिस घर में तुम रहतीं, सब सद्गुण आता।</p>
+                  <p class="aarti-line-sub">सब संभव हो जाता, मन नहीं घबराता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="168">
+                  <p class="aarti-line-main">तुम बिन यज्ञ न होते, वस्त्र न कोई पाता।</p>
+                  <p class="aarti-line-sub">खान-पान का वैभव, सब तुमसे आता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="203">
+                  <p class="aarti-line-main">शुभ-गुण मंदिर सुंदर, क्षीरोदधि जाता।</p>
+                  <p class="aarti-line-sub">रत्न चतुर्दश तुम बिन, कोई नहीं पाता॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="240">
+                  <p class="aarti-line-main">महालक्ष्मीजी की आरती, जो कोई नर गावे।</p>
+                  <p class="aarti-line-sub">उर आनंद समावे, अति धन संपत्ति पावे॥ ॐ जय लक्ष्मी माता...</p>
+                </div>
+                <div class="aarti-stanza" data-time="275">
+                  <p class="aarti-line-main">ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।</p>
+                  <p class="aarti-line-sub">सब संकट हरणी, सुख-संपत्ति करणी, मंगल मूरति माता॥</p>
+                </div>
+              </div>
+
+              <!-- Ganesh Aarti Verses (Synchronized with Anuradha Paudwal Audio) -->
+              <div class="aarti-pane" id="ganeshAartiPane">
+                <div class="aarti-stanza active-verse" data-time="0">
+                  <p class="aarti-line-main">जय गणेश जय गणेश, जय गणेश देवा।</p>
+                  <p class="aarti-line-sub">माता जाकी पार्वती, पिता महादेवा॥</p>
+                </div>
+                <div class="aarti-stanza" data-time="26">
+                  <p class="aarti-line-main">एक दंत दयावंत, चार भुजा धारी।</p>
+                  <p class="aarti-line-sub">माथे सिंदूर सोहे, मूसे की सवारी॥ जय गणेश देवा...</p>
+                </div>
+                <div class="aarti-stanza" data-time="57">
+                  <p class="aarti-line-main">पान चढ़े फूल चढ़े, और चढ़े मेवा।</p>
+                  <p class="aarti-line-sub">लड्डुअन का भोग लगे, संत करें सेवा॥ जय गणेश देवा...</p>
+                </div>
+                <div class="aarti-stanza" data-time="86">
+                  <p class="aarti-line-main">अंधन को आंख देत, कोढ़िन को काया।</p>
+                  <p class="aarti-line-sub">बांझन को पुत्र देत, निर्धन को माया॥ जय गणेश देवा...</p>
+                </div>
+                <div class="aarti-stanza" data-time="117">
+                  <p class="aarti-line-main">'सूर' श्याम शरण आए, सफल कीजे सेवा।</p>
+                  <p class="aarti-line-sub">माता जाकी पार्वती, पिता महादेवा॥ जय गणेश देवा...</p>
+                </div>
+                <div class="aarti-stanza" data-time="147">
+                  <p class="aarti-line-main">जय गणेश जय गणेश, जय गणेश देवा।</p>
+                  <p class="aarti-line-sub">दीनन की लाज राखो, शंभु-सुत वारी॥ बोलो गणपति बप्पा मोरिया!</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. FESTIVE CREATIVE STUDIO (CONSOLIDATED TABBED HUB: 65% SHORTER SCROLL)
+         ========================================================================== -->
+    <section class="festive-section" id="festive-studio">
+      <div class="container interactive-zone">
+        <div class="section-header">
+          <span class="section-tag">CREATIVE FESTIVE STUDIO</span>
+          <h2 class="section-title">दीवाली उत्सव स्टूडियो (All-in-One Studio)</h2>
+          <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-icon">🎨</span>
+            <span class="divider-line"></span>
+          </div>
+          <p class="section-subtitle">
+            रंगोली बनाएं, पर्सनलाइज़्ड ग्रीटिंग कार्ड तैयार करें, फोटो फ्रेम डाउनलोड करें, मिठाई पैक करें या आकाश में लालटेन छोड़ें।
+          </p>
+        </div>
+
+        <!-- Studio Master Tabs -->
+        <div class="hub-tabs-container">
+          <button class="hub-tab-btn active" data-target="studioRangoli">
+            <span>🎨</span> रंगोली स्टूडियो
+          </button>
+          <button class="hub-tab-btn" data-target="studioCard">
+            <span>💌</span> ग्रीटिंग कार्ड मेकर
+          </button>
+          <button class="hub-tab-btn" data-target="studioPhoto">
+            <span>📸</span> फोटो फ्रेम व DP
+          </button>
+          <button class="hub-tab-btn" data-target="studioMithai">
+            <span>🍬</span> मिठाई डिब्बा
+          </button>
+          <button class="hub-tab-btn" data-target="studioLantern">
+            <span>🏮</span> आकाश दीप
+          </button>
+        </div>
+
+        <!-- Sub-Pane 1: Rangoli Studio -->
+        <div class="hub-tab-pane active" id="studioRangoli">
+          <div class="rangoli-studio-panel">
+            <div class="rangoli-controls">
+              <div class="pattern-tabs">
+                <button class="rangoli-pattern-tab active" data-pattern="lotus">🪷 कमल मंडल</button>
+                <button class="rangoli-pattern-tab" data-pattern="peacock">🦚 मयूर पंख</button>
+                <button class="rangoli-pattern-tab" data-pattern="diya">🪔 दीप चक्र</button>
+                <button class="rangoli-pattern-tab" data-pattern="kolam">💠 कोलम</button>
+              </div>
+              <div class="palette-swatches" id="rangoliPalette"></div>
+            </div>
+
+            <div class="rangoli-viewport" id="rangoliViewport">
+              <svg id="rangoli-lotus" class="rangoli-svg-template active" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="180" class="colorable" fill="rgba(255,255,255,0.04)" />
+                <circle cx="200" cy="200" r="145" class="colorable" fill="rgba(255,255,255,0.06)" />
+                <circle cx="200" cy="200" r="110" class="colorable" fill="rgba(255,255,255,0.08)" />
+                <g id="lotusOuterPetals">
+                  <path d="M 200,55 Q 235,115 200,145 Q 165,115 200,55 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 302,97 Q 290,147 240,160 Q 255,110 302,97 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 345,200 Q 285,235 255,200 Q 285,165 345,200 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 302,302 Q 255,290 240,240 Q 290,255 302,302 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 200,345 Q 165,285 200,255 Q 235,285 200,345 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 97,302 Q 110,255 160,240 Q 147,290 97,302 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 55,200 Q 115,165 145,200 Q 115,235 55,200 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                  <path d="M 97,97 Q 147,110 160,160 Q 110,147 97,97 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                </g>
+                <circle cx="200" cy="200" r="50" class="colorable" fill="rgba(255,255,255,0.12)" />
+                <circle cx="200" cy="200" r="24" class="colorable" fill="rgba(255,255,255,0.2)" />
+                <circle cx="200" cy="200" r="10" class="colorable" fill="#FFD700" />
+              </svg>
+
+              <svg id="rangoli-peacock" class="rangoli-svg-template" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="175" class="colorable" fill="rgba(255,255,255,0.04)" />
+                <path d="M 200,200 Q 140,50 200,30 Q 260,50 200,200 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                <path d="M 200,200 Q 70,80 100,50 Q 160,120 200,200 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                <path d="M 200,200 Q 330,80 300,50 Q 240,120 200,200 Z" class="colorable" fill="rgba(255,255,255,0.05)" />
+                <ellipse cx="200" cy="255" rx="45" ry="60" class="colorable" fill="rgba(255,255,255,0.08)" />
+                <circle cx="200" cy="180" r="28" class="colorable" fill="rgba(255,255,255,0.15)" />
+              </svg>
+
+              <svg id="rangoli-diya" class="rangoli-svg-template" viewBox="0 0 400 400">
+                <polygon points="200,20 240,150 380,200 240,250 200,380 160,250 20,200 160,150" class="colorable" fill="rgba(255,255,255,0.04)" />
+                <circle cx="200" cy="200" r="70" class="colorable" fill="rgba(255,255,255,0.1)" />
+                <circle cx="200" cy="200" r="30" class="colorable" fill="#FF9800" />
+              </svg>
+
+              <svg id="rangoli-kolam" class="rangoli-svg-template" viewBox="0 0 400 400">
+                <rect x="70" y="70" width="260" height="260" rx="20" class="colorable" fill="rgba(255,255,255,0.04)" transform="rotate(45 200 200)" />
+                <circle cx="200" cy="200" r="85" class="colorable" fill="rgba(255,255,255,0.08)" />
+                <circle cx="200" cy="200" r="25" class="colorable" fill="#FFD700" />
+              </svg>
+
+              <canvas id="rangoliFreehandCanvas"></canvas>
+            </div>
+
+            <div class="rangoli-tool-actions">
+              <button class="btn-secondary active" id="rangoliModeFill"><span>🖌️</span> रंग भरें</button>
+              <button class="btn-secondary" id="rangoliModeBrush"><span>✨</span> सैंड ब्रश</button>
+              <button class="btn-secondary" id="autoFillRangoliBtn"><span>🎨</span> ऑटो शुभ रंग</button>
+              <button class="btn-secondary" id="resetRangoliBtn"><span>🔄</span> साफ़ करें</button>
+              <button class="btn-primary" id="downloadRangoliBtn"><span>📥</span> रंगोली डाउनलोड करें (PNG)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Pane 2: Greeting Card Maker -->
+        <div class="hub-tab-pane" id="studioCard">
+          <div class="card-maker-dashboard">
+            <div class="card-controls-panel">
+              <div class="form-group">
+                <label class="form-label" for="cardRecipient">पाने वाले का नाम (To):</label>
+                <input type="text" id="cardRecipient" class="form-input" value="स्नेही स्वजन" placeholder="नाम लिखें...">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cardSender">भेजने वाले का नाम (From):</label>
+                <input type="text" id="cardSender" class="form-input" value="अपना कॉलेज बिहार परिवार" placeholder="अपना नाम लिखें...">
+              </div>
+              <div class="form-group">
+                <label class="form-label">थीम चुनें:</label>
+                <div class="card-theme-selector">
+                  <button class="card-theme-btn active" data-theme="royal-gold">शाही स्वर्ण</button>
+                  <button class="card-theme-btn" data-theme="midnight-sky">नक्षत्र आकाश</button>
+                  <button class="card-theme-btn" data-theme="marigold-amber">गेंदा अंबर</button>
+                  <button class="card-theme-btn" data-theme="vedic-emerald">वैदिक हरित</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cardWishSelect">शुभकामना संदेश:</label>
+                <select id="cardWishSelect" class="form-input">
+                  <option value="दीयों की रोशनी से झिलमिलाता आंगन हो,&#10;पटाखों की गूंज से आसमां रोशन हो,&#10;ऐसी आए यह पावन दीवाली आपके द्वार,&#10;हर ओर खुशियों और समृद्धि का संचार हो!">हिंदी शायरी</option>
+                  <option value="ॐ महालक्ष्म्यै नमः।&#10;सुख-शान्ति-समृद्धि-आरोग्य-ऐश्वर्यैः सह&#10;दीपावली महापर्वणः हार्दिकाः शुभाशयाः॥&#10;शुभम भवतु!">संस्कृत श्लोक</option>
+                  <option value="May the divine light of Deepavali illuminate&#10;your career, studies and life with joy.&#10;Wishing you a blissful Happy Diwali!">English Wish</option>
+                  <option value="custom">✏️ स्वयं का संदेश लिखें</option>
+                </select>
+                <textarea id="cardCustomWish" class="form-input" rows="2" style="display: none; margin-top: 0.5rem;" placeholder="संदेश लिखें..."></textarea>
+              </div>
+              <div style="display: flex; gap: 0.8rem;">
+                <button class="btn-primary" id="downloadCardBtn" style="flex:1;"><span>📥</span> कार्ड डाउनलोड</button>
+                <button class="btn-secondary" id="shareCardWhatsAppBtn"><span>💬</span> व्हाट्सएप शेयर</button>
+              </div>
+            </div>
+
+            <div class="card-preview-panel">
+              <canvas id="greetingCardCanvas" width="560" height="720"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Pane 3: Photo Frame & DP Maker -->
+        <div class="hub-tab-pane" id="studioPhoto">
+          <div class="card-maker-dashboard">
+            <div class="card-controls-panel">
+              <div class="form-group">
+                <label class="form-label" for="photoUploadInput">१. अपनी फोटो चुनें (Upload Photo):</label>
+                <input type="file" id="photoUploadInput" class="form-input" accept="image/*">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="photoUserName">२. फ्रेम पर नाम लिखें:</label>
+                <input type="text" id="photoUserName" class="form-input" value="अपना कॉलेज बिहार" placeholder="नाम लिखें...">
+              </div>
+              <p style="font-size:0.85rem; color:var(--gold-deep);">
+                💡 फोटो अपलोड करते ही यह स्वर्णिम दीयों और तोरण के साथ सज जाएगी।
+              </p>
+              <button class="btn-primary" id="downloadPhotoFrameBtn" style="margin-top: 1rem;">
+                <span>📥</span> फोटो फ्रेम डाउनलोड करें (PNG)
+              </button>
+            </div>
+
+            <div class="card-preview-panel">
+              <canvas id="photoBoothCanvas" width="600" height="600"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Pane 4: Royal Mithai Box -->
+        <div class="hub-tab-pane" id="studioMithai">
+          <div class="mithai-dashboard">
+            <div>
+              <h3 style="font-family: var(--font-heading); color: var(--gold-light); margin-bottom: 1rem;">मिठाइयां चुनें</h3>
+              <div class="sweets-picker-grid" id="sweetsGrid"></div>
+            </div>
+            <div class="royal-box-preview">
+              <div class="royal-box-header">
+                <h3>✨ शाही मिष्ठान्न डिब्बा ✨</h3>
+                <p style="font-size: 0.85rem; color: var(--gold-deep);">पैक स्थिति: <span id="packedCount" style="color:#FFF; font-weight:bold;">0 / 6</span></p>
+              </div>
+              <div class="mithai-box-grid" id="mithaiBoxSlots"></div>
+              <div class="mithai-gift-form">
+                <input type="text" id="mithaiRecipientName" class="form-input" value="आप सभी को" placeholder="पाने वाले का नाम...">
+                <input type="text" id="mithaiSenderName" class="form-input" value="अपना कॉलेज बिहार" placeholder="भेजने वाले का नाम...">
+                <textarea id="mithaiCustomNote" class="form-input" rows="2">दीपावली पर आपके जीवन में मिठास व सफलता बनी रहे!</textarea>
+                <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+                  <button class="btn-primary" id="sendMithaiBoxBtn" style="flex:1;"><span>🎁</span> व्हाट्सएप पर भेजें</button>
+                  <button class="btn-secondary" id="autoPackMithaiBtn"><span>⚡</span> ऑटो पैक</button>
+                  <button class="btn-secondary" id="clearMithaiBoxBtn"><span>🗑️</span> खाली करें</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Pane 5: Akash Deepotsav (Sky Lanterns) -->
+        <div class="hub-tab-pane" id="studioLantern">
+          <div class="lantern-sky-panel">
+            <div class="lantern-sky-viewport">
+              <canvas id="lanternCanvas"></canvas>
+            </div>
+            <div class="lantern-controls-bar">
+              <input type="text" id="lanternWishInput" class="form-input" placeholder="संकल्प / मनोकामना लिखें..." value="विद्यार्थियों को परीक्षाओं में उत्तम सफलता">
+              <select id="lanternColorSelect" class="form-input" style="max-width: 170px;">
+                <option value="#FFA000">स्वर्ण पीला</option>
+                <option value="#FF5722">केसरिया लाल</option>
+                <option value="#E91E63">गुलाबी</option>
+                <option value="#00E5FF">आसमानी</option>
+              </select>
+              <button class="btn-primary" id="releaseLanternBtn">
+                <span>🏮</span> आकाश में लालटेन छोड़ें
+              </button>
+            </div>
+            <div class="lantern-wish-board">
+              <span class="wish-board-label">✨ हाल ही में छोड़े गए पावन संकल्प:</span>
+              <div class="wishes-list" id="wishesList">
+                <div class="wish-chip"><span>🪔</span> विश्व शांति व सर्वजन हिताय</div>
+                <div class="wish-chip"><span>🪔</span> अपना कॉलेज बिहार परिवार की ओर से मंगलकामनाएं</div>
+                <div class="wish-chip"><span>🪔</span> BEU छात्रों को सेमेस्टर परीक्षाओं में सफलता</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. APNA COLLEGE BIHAR (BEU EDUCATIONAL PLATFORM) & WHATSAPP CHANNEL + QUIZ
+         ========================================================================== -->
+    <section class="festive-section" id="college-channel">
+      <div class="container interactive-zone">
+        
+        <!-- Official WhatsApp Channel Showcase -->
+        <div class="whatsapp-showcase-card">
+          <div class="whatsapp-card-badge">OFFICIAL EDUCATIONAL PLATFORM • BEU BIHAR</div>
+          <h2 class="whatsapp-title">📲 अपना कॉलेज बिहार (Apna College Bihar)</h2>
+          <div class="whatsapp-subtitle">
+            बिहार इंजीनियरिंग यूनिवर्सिटी (BEU) एवं बिहार के कॉलेज विद्यार्थियों का समर्पित एजुकेशनल प्लेटफॉर्म।
+            सेमेस्टर नोट्स, प्रीवियस ईयर क्वेश्चंस (PYQs), सिलेबस, एग्जाम अलर्ट्स और कॉलेज गाइडेंस का विश्वसनीय माध्यम।
+          </div>
+
+          <div class="whatsapp-features-row">
+            <div class="wa-feature-pill"><span>⚡</span> BEU एग्जाम व रिजल्ट अपडेट्स</div>
+            <div class="wa-feature-pill"><span>📚</span> सेमेस्टर हैंडराइटन नोट्स व PYQs</div>
+            <div class="wa-feature-pill"><span>🎯</span> इंजीनियरिंग व कॉलेज गाइडेंस</div>
+            <div class="wa-feature-pill"><span>🤝</span> कॉलेज कम्युनिटी व मेंटरशिप</div>
+          </div>
+
+          <div class="whatsapp-action-box">
+            <a href="https://whatsapp.com/channel/0029Va4w" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-join" id="whatsappChannelMainBtn">
+              <span class="wa-icon">💬</span>
+              <span class="wa-text-wrap">
+                <span class="wa-btn-title">व्हाट्सएप चैनल से जुड़ें (Join WhatsApp Channel)</span>
+                <span class="wa-btn-sub">Click here to join Apna College Bihar Official Channel</span>
+              </span>
+            </a>
+            <p class="wa-disclaimer">
+              ✨ <em>अपना कॉलेज बिहार परिवार की ओर से आप सभी को पुनः प्रकाश पर्व दीपावली की हार्दिक शुभकामनाएं!</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- Diwali Trivia Quiz (Fun Family Quiz) -->
+        <div class="quiz-container" style="margin-top: 3.5rem;">
+          <div class="section-header" style="margin-bottom: 1.5rem;">
+            <span class="section-tag">KNOWLEDGE &amp; TRIVIA</span>
+            <h3 class="section-title" style="font-size: 1.8rem;">दीपावली ज्ञान कुंभ (Festive Quiz)</h3>
+          </div>
+          <div class="festive-card quiz-card-panel" id="quizCard">
+            <!-- Rendered by trivia.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Celebration Modal -->
+  <div class="modal-overlay" id="deepotsavBlessingModal" role="dialog" aria-modal="true" aria-labelledby="blessingModalTitle">
+    <div class="modal-card">
+      <div class="modal-icon">🪔</div>
+      <h3 class="modal-title" id="blessingModalTitle">✨ महा दीपोत्सव संपन्न! ✨</h3>
+      <p class="modal-shloka">
+        शुभं करोति कल्याणमारोग्यं धनसंपदा।<br>
+        शत्रुबुद्धिविनाशाय दीपज्योतिर्नमोऽस्तु ते॥
+      </p>
+      <p class="modal-body">
+        साधुवाद! आपने सभी २१ पावन दीप प्रज्वलित कर दिए हैं। अपना कॉलेज बिहार परिवार की ओर से आपके और आपके समस्त परिजनों के उज्ज्वल भविष्य और आरोग्यता की मंगलकामनाएं!
+      </p>
+      <button class="btn-primary" id="closeModalBtn" style="margin: 0 auto;">
+        <span>🙏</span> शुभ दीपावली स्वीकार करें
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container interactive-zone">
+      <p class="footer-shloka">
+        दीपज्योतिः परंब्रह्म दीपज्योतिर्जनार्दनः। दीपो हरतु मे पापं दीपज्योतिर्नमोऽस्तु ते॥
+      </p>
+      <p class="footer-sub">
+        शुभ दीपावली • Happy Diwali • Festival of Lights 2026
+      </p>
+      <ul class="footer-links">
+        <li><a href="#hero">होम</a></li>
+        <li><a href="#deepotsav-katha">दीपोत्सव व कथा</a></li>
+        <li><a href="#mandir">आरती दर्शन</a></li>
+        <li><a href="#festive-studio">उत्सव स्टूडियो</a></li>
+        <li><a href="#college-channel">WhatsApp चैनल</a></li>
+      </ul>
+      <p class="footer-copy">
+        समर्पित: <strong>अपना कॉलेज बिहार (Apna College Bihar)</strong> • BEU Educational Platform. 🪔
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts (Cache Busted v3.0) -->
+  <script src="js/audio.js?v=3.0"></script>
+  <script src="js/fireworks.js?v=3.0"></script>
+  <script src="js/diya.js?v=3.0"></script>
+  <script src="js/puja.js?v=3.0"></script>
+  <script src="js/lanterns.js?v=3.0"></script>
+  <script src="js/rangoli.js?v=3.0"></script>
+  <script src="js/mithai.js?v=3.0"></script>
+  <script src="js/greetings.js?v=3.0"></script>
+  <script src="js/photobooth.js?v=3.0"></script>
+  <script src="js/trivia.js?v=3.0"></script>
+  <script src="js/main.js?v=3.0"></script>
+</body>
+</html>
